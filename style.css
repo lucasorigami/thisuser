@@ -159,45 +159,117 @@ body {
 font-family: "IBM Plex Mono Light";
 font-style: italic;
 background-color: black;
-    color: white;
+color: black;
+margin: 0;
 }
 
 h1 {
     font-family: "Mule";
+    font-style: normal;
+    /* color: white; */
+}
+
+.topbar {
+  display: flex;
+  flex-direction: row;
+}
+.header {
+  /* background-color: white; */
+  filter: invert(1);
+  mix-blend-mode: difference;
+  padding: 20px;
+  position: fixed;
+  width: 100%;
+}
+
+.header h1 {
+  color: black;
+  margin: 0;
+}
+
+
+.title {
+  height: 100vh;
+  width: 100%;
+}
+
+.titlebox {
+  max-width: 300px;
+  color: white;
+  margin: 2em 20px 20px 20px;
+}
+
+.titlebox h2 {
+  transition: all 0.3s;
+}
+
+.gap {
+  display: grid;
+  grid-template-columns: [left] 33% [middle] 33% [right] 33%;
+  grid-template-rows: [] auto;
+  padding: 20px 0 20px 0;
+  align-items: botttom;
+}
+
+.long {
+  padding: 20px 0 40px 0
+}
+
+.half {
+  padding: 20px 0 60vh 0;
+}
+
+.floaty {
+  background-color: white;
+  padding:  10px;
+  margin:  0 20px 0 20px;
+}
+
+.user {
+  margin-left: 21ex;
+  color: white;
+  position: sticky;
+}
+
+.floaty h2 {
+  text-decoration: underline;
+}
+
+.floaty-right {
+  background-color: white;
+  padding:  10px;
+  margin:  0 20px 0 20px;
+  grid-column: right;
+}
+
+.blend {
+  backdrop-filter: invert(1);
+  mix-blend-mode: difference;
 }
 
 .articles {
-    /* max-width: 500px; */
-    /* margin: auto; */
-    /* flex-direction: row; */
-    /* flex: 2; */
+    background-color: white;
+    margin: 0;
     display: grid;
     grid-template-columns: [left] 33% [middle] 33% [right] 33%;
     grid-template-rows: [one] auto [two] auto [three] auto;
 }
 
 .article {
+    background-color: white;
     padding: 10px;
     margin:  0 20px 0 20px;
-    filter: blur(3.5px);
-        /* box-shadow: 0px -2px 2px rgba(34,34,34,0.6); */
-    transition: all 3s;
 
-}
-
-.article:hover {
-    filter: blur(0px);
-    transition: all 0.2s ease-in-out;
 }
 
  
 #n52271 {
     /* This user has a sense of humour and shows it through the use of userboxes. */
     /* color: #FFCC00; */
-    color: yellow;
+    color: black;
     /* grid-area: one left; */
-    grid-row: one;
-    grid-column: left;
+    /* grid-row: one; */
+    /* grid-column: left; */
 }
 
 /* .gradient {
@@ -209,8 +281,8 @@ h1 {
     /* This user has a sense of humour and shows it through the use of userboxes. */
     color: #bdf600;
     /* background: linear-gradient(0.25turn, #260080 10%, #000000); */
-    grid-row: two;
-    grid-column: middle;
+    /* grid-row: two; */
+    /* grid-column: middle; */
 }
 
 
@@ -251,6 +323,13 @@ iframe {
 
 }
 
-#UserSundostund {
-    
+.hidden {
+  display: none;
+  visibility: hidden;
+}
+
+#exitinteractivemode {
+  display: inline-block;
+  color: white;
+  background-color: black;
 }

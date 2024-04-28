@@ -1,35 +1,83 @@
 // Get all elements with the 'tags' class
 var tagElements = document.querySelectorAll('.article');
-var titleEl = document.getElementById("title")
-var graphFunc = document.getElementById('network').contentWindow 
+var titleEl = document.getElementById("title");
+var graphFunc = document.getElementById('network').contentWindow;
+var graphWindows = document.querySelectorAll(".title, .gap:not(.main)");
+var allExceptGraph = document.querySelectorAll("body > div:not(.first):not(.main, #network, .graph)");
+var interactiveMode = document.querySelectorAll(".interactivemode");
+var exitInteractiveMode = document.getElementById("exitinteractivemode");
+var activeNode;
+var currentScrollPosition;
+
+
+for (var graphWindow of graphWindows) {
+  graphWindow.addEventListener("click", function () {
+    console.log("clicked!")
+    currentScrollPosition = window.scrollY || document.documentElement.scrollTop;
+    for (let element of interactiveMode) {
+      element.classList.remove("hidden");
+    }
+    for (let element of allExceptGraph) {
+      element.classList.add("hidden")
+    }
+  })
+}
+
+
+exitInteractiveMode.addEventListener("click", function () {
+  for (let element of allExceptGraph) {
+    element.classList.remove("hidden");
+  }
+  for (let element of interactiveMode) {
+    element.classList.add("hidden")
+  }
+  window.scrollTo(0, currentScrollPosition);
+  if (activeNode) {
+    graphFunc.nodeActive(activeNode);
+  }
+  else {
+    graphFunc.nodeNormal()
+  }
+  graphFunc.sigInst.position(0, 0, 1).draw();
+})
+
+
 
 
 // Loop through the elements and add the mouseover event listener
 for (var i = 0; i < tagElements.length; i++) {
-  tagElements[i].addEventListener('mouseover', function() {
+  tagElements[i].addEventListener('mouseover', function () {
     var id = this.id;
     console.log("You're hovering over the " + id + " tag.");
 
-    let idnum = id.slice(1);
-    graphFunc.nodeActive(idnum);
+    activeNode = id.slice(1);
+    graphFunc.nodeActive(activeNode);
   });
 }
 
 
 
-titleEl.addEventListener("mouseover", function() {
-    graphFunc.nodeNormal() 
+titleEl.addEventListener("click", function () {
+  graphFunc.nodeNormal()
 })
 
 
-const posiionedEl = document.querySelectorAll(".left, .middle, .right");
 
-var j = 0;
-for (i of posiionedEl) {
-  j++;
-  i.style.grid-row("one");
 
-}
+
+
+var waypoint = new Waypoint({
+  element: document.getElementById('n52271'),
+  handler: function () {
+    activeNode = 132;
+    graphFunc.nodeActive(activeNode);
+    console.log('Basic waypoint triggered')
+  }
+})
+
+
+
+
 
 
 // // Get all the article divs

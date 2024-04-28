@@ -435,7 +435,7 @@ function nodeNormal() {
 }
 
 function nodeActive(a) {
-    document.getElementById("nodeid").innerHTML = nodeid;
+    document.getElementById("nodeid").innerHTML = a;
 	var groupByDirection=false;
 	if (config.informationPanel.groupByEdgeDirection && config.informationPanel.groupByEdgeDirection==true)	groupByDirection=true;
 	
