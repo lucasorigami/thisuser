@@ -10,9 +10,25 @@ var activeNode;
 var currentScrollPosition;
 
 
+var waypoint = new Waypoint({
+  element: document.getElementById('n52271'),
+  handler: function (direction) {
+    console.log('Direction: ' + direction)
+    if (direction == "down") {
+      activeNode = 132;
+    }
+    else if (direction == "up") {
+      activeNode = 52271;
+    }
+    graphFunc.nodeActive(activeNode);
+  }
+})
+
+
 for (var graphWindow of graphWindows) {
   graphWindow.addEventListener("click", function () {
     console.log("clicked!")
+    waypoint.disable();
     currentScrollPosition = window.scrollY || document.documentElement.scrollTop;
     for (let element of interactiveMode) {
       element.classList.remove("hidden");
@@ -39,21 +55,22 @@ exitInteractiveMode.addEventListener("click", function () {
     graphFunc.nodeNormal()
   }
   graphFunc.sigInst.position(0, 0, 1).draw();
+  waypoint.enable();
 })
 
 
 
 
-// Loop through the elements and add the mouseover event listener
-for (var i = 0; i < tagElements.length; i++) {
-  tagElements[i].addEventListener('mouseover', function () {
-    var id = this.id;
-    console.log("You're hovering over the " + id + " tag.");
+// // Loop through the elements and add the mouseover event listener
+// for (var i = 0; i < tagElements.length; i++) {
+//   tagElements[i].addEventListener('mouseover', function () {
+//     var id = this.id;
+//     console.log("You're hovering over the " + id + " tag.");
 
-    activeNode = id.slice(1);
-    graphFunc.nodeActive(activeNode);
-  });
-}
+//     activeNode = id.slice(1);
+//     graphFunc.nodeActive(activeNode);
+//   });
+// }
 
 
 
@@ -66,14 +83,7 @@ titleEl.addEventListener("click", function () {
 
 
 
-var waypoint = new Waypoint({
-  element: document.getElementById('n52271'),
-  handler: function () {
-    activeNode = 132;
-    graphFunc.nodeActive(activeNode);
-    console.log('Basic waypoint triggered')
-  }
-})
+
 
 
 
