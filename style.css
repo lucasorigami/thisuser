@@ -191,6 +191,24 @@ h1 {
 .title {
   height: 100vh;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.title h1 {
+  margin: 0
+}
+
+
+.doubletitle {
+  height: 200vh;
+  width: 100%;
+}
+
+.alignbottom {
+  align-items: bottom;
+  /* margin: bottom 0px;; */
 }
 
 .titlebox {
@@ -260,6 +278,40 @@ h1 {
     padding: 10px;
     margin:  0 20px 0 20px;
 
+}
+
+.portraitimage {
+  perspective: 10px;
+  height: auto;
+  width: 100%;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.portraitimage img {
+  height: auto;
+  width: 100%;
+}
+
+
+
+.parallax__layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+
+.parallax__layer--fore {
+  -webkit-transform: translateZ(90px);
+  transform: translateZ(90px);
+  z-index: 1;
 }
 
  
@@ -332,4 +384,77 @@ iframe {
   display: inline-block;
   color: white;
   background-color: black;
+}
+
+.middlediv {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  /* width: 100%; */
+  justify-content: center;
+  align-items: center;
+}
+
+.middleboxicon {
+  height: 70px;
+  width: 70px;
+  padding: 10px;
+  /* padding-top: 50%; */
+  background-color: #ffcf4d;
+  border: #ffcf4d;
+  border-right: 0;
+  border-style: solid;
+  align-items: center;
+  justify-content: center;
+}
+
+.middlebox {
+  width: 260px;
+  height: 70px;
+  background-color: #ffefa6;
+  padding: 10px;
+  border: #ffcf4d;
+  border-style: solid;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.sticky {
+  position: sticky;
+  top: 0;
+  /* flex: 1 auto; */
+  /* align-self: flex-start; */
+}
+
+.red p {
+  margin: 0;
+}
+
+
+.green > p {
+  margin: 0;
+}
+
+.red {
+  background-color: #ee7993;
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
+  margin-right: 10px;
+
+}
+
+.green {
+  background-color: #3fb17d;
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
+  margin-right: 10px;
+}
+
+.legenda {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }

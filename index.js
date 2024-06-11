@@ -16,11 +16,13 @@ var waypoint = new Waypoint({
     console.log('Direction: ' + direction)
     if (direction == "down") {
       activeNode = 132;
+      graphFunc.nodeActive(activeNode);
     }
     else if (direction == "up") {
-      activeNode = 52271;
+      activeNode =
+      graphFunc.nodeNormal()
+      
     }
-    graphFunc.nodeActive(activeNode);
   }
 })
 
@@ -80,6 +82,18 @@ titleEl.addEventListener("click", function () {
 
 
 
+window.addEventListener('scroll', function() {
+  if (window.scrollY >= 100) {
+    // Trigger your JavaScript code here
+    console.log('Scroll position is at least 20 pixels from the top');
+    titleEl.innerHTML = "<h1>This User</h1>"
+    // Add any additional functionality you need
+  }
+  else if (window.scrollY < 100) {
+    titleEl.innerHTML = "<h1>This is"
+  }
+
+});
 
 
 
